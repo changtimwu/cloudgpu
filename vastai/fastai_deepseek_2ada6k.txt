@@ -1,0 +1,104 @@
+INFO 05-18 23:26:17 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1], buffer_handle=(2, 10485760, 10, 'psm_1d82fb13'), local_subscribe_addr='ipc:///tmp/4571d0f0-0568-480d-8974-8ef8e9e47881', remote_subscribe_addr=None, remote_addr_ipv6=False)
+2025-05-18 23:26:17,150 - log_monitor - INFO - Read 3 new lines from vllm.log
+INFO 05-18 23:26:19 [__init__.py:239] Automatically detected platform cuda.
+INFO 05-18 23:26:19 [__init__.py:239] Automatically detected platform cuda.
+2025-05-18 23:26:19,758 - log_monitor - INFO - Read 2 new lines from vllm.log
+WARNING 05-18 23:26:21 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7cfa15756240>
+WARNING 05-18 23:26:21 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x741b663c6ff0>
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:21 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_7afa0ba7'), local_subscribe_addr='ipc:///tmp/ed1efe61-abee-48ee-8b5a-d57d48efaa40', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:21 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_0d881bd4'), local_subscribe_addr='ipc:///tmp/1e4f5438-be69-42a4-b227-805369747fcc', remote_subscribe_addr=None, remote_addr_ipv6=False)
+2025-05-18 23:26:21,965 - log_monitor - INFO - Read 4 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m [1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:22 [utils.py:1055] Found nccl from library libnccl.so.2
+INFO 05-18 23:26:22 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:22 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:22 [pynccl.py:69] vLLM is using nccl==2.21.5
+2025-05-18 23:26:22,769 - log_monitor - INFO - Read 4 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:23 [custom_all_reduce_utils.py:206] generating GPU P2P access cache in /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+2025-05-18 23:26:23,172 - log_monitor - INFO - Read 1 new lines from vllm.log
+2025-05-18 23:26:25,980 - log_monitor - INFO - Read 34 new lines from jupyter.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:35 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:35 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:35 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_261999ab'), local_subscribe_addr='ipc:///tmp/50a33ad4-6ebc-470e-8460-fd4441ec44e2', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:35 [parallel_state.py:1004] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 1
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:35 [parallel_state.py:1004] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 0
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:35 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:35 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m WARNING 05-18 23:26:35 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m WARNING 05-18 23:26:35 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:36 [gpu_model_runner.py:1329] Starting to load model deepseek-ai/DeepSeek-R1-Distill-Llama-8B...
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:36 [gpu_model_runner.py:1329] Starting to load model deepseek-ai/DeepSeek-R1-Distill-Llama-8B...
+2025-05-18 23:26:36,014 - log_monitor - INFO - Read 11 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:26:36 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:26:36 [weight_utils.py:265] Using model weights format ['*.safetensors']
+2025-05-18 23:26:36,416 - log_monitor - INFO - Read 2 new lines from vllm.log
+2025-05-18 23:27:02,911 - log_monitor - INFO - Read 28 new lines from jupyter.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:27:14 [weight_utils.py:281] Time spent downloading weights for deepseek-ai/DeepSeek-R1-Distill-Llama-8B: 37.700280 seconds
+2025-05-18 23:27:14,151 - log_monitor - INFO - Read 1 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m 
+Loading safetensors checkpoint shards:   0% Completed | 0/2 [00:00 , ?it/s]
+2025-05-18 23:27:14,353 - log_monitor - INFO - Read 2 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m 
+Loading safetensors checkpoint shards:  50% Completed | 1/2 [00:01<00:01,  1.20s/it]
+2025-05-18 23:27:15,559 - log_monitor - INFO - Read 2 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m 
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:02<00:00,  1.42s/it]
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m 
+Loading safetensors checkpoint shards: 100% Completed | 2/2 [00:02<00:00,  1.39s/it]
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m 
+2025-05-18 23:27:17,165 - log_monitor - INFO - Read 5 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:27:17 [loader.py:458] Loading weights took 3.04 seconds
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:27:17 [loader.py:458] Loading weights took 2.79 seconds
+2025-05-18 23:27:17,568 - log_monitor - INFO - Read 2 new lines from vllm.log
+[1;36m(VllmWorker rank=1 pid=2230)[0;0m INFO 05-18 23:27:17 [gpu_model_runner.py:1347] Model loading took 7.5123 GiB and 41.407045 seconds
+2025-05-18 23:27:17,770 - log_monitor - INFO - Read 1 new lines from vllm.log
+[1;36m(VllmWorker rank=0 pid=2229)[0;0m INFO 05-18 23:27:17 [gpu_model_runner.py:1347] Model loading took 7.5123 GiB and 41.389522 seconds
+2025-05-18 23:27:17,972 - log_monitor - INFO - Read 1 new lines from vllm.log
+INFO 05-18 23:27:20 [kv_cache_utils.py:634] GPU KV cache size: 495,424 tokens
+INFO 05-18 23:27:20 [kv_cache_utils.py:637] Maximum concurrency for 8,192 tokens per request: 60.48x
+INFO 05-18 23:27:20 [kv_cache_utils.py:634] GPU KV cache size: 495,424 tokens
+INFO 05-18 23:27:20 [kv_cache_utils.py:637] Maximum concurrency for 8,192 tokens per request: 60.48x
+2025-05-18 23:27:20,176 - log_monitor - INFO - Read 4 new lines from vllm.log
+INFO 05-18 23:27:20 [core.py:159] init engine (profile, create kv cache, warmup model) took 2.57 seconds
+INFO 05-18 23:27:20 [core_client.py:439] Core engine process 0 ready.
+2025-05-18 23:27:20,578 - log_monitor - INFO - Read 2 new lines from vllm.log
+WARNING 05-18 23:27:20 [config.py:1239] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 05-18 23:27:20 [serving_chat.py:118] Using default chat sampling params from model: {'temperature': 0.6, 'top_p': 0.95}
+INFO 05-18 23:27:20 [serving_completion.py:61] Using default completion sampling params from model: {'temperature': 0.6, 'top_p': 0.95}
+INFO 05-18 23:27:20 [api_server.py:1090] Starting vLLM API server on http://127.0.0.1:18000
+INFO 05-18 23:27:20 [launcher.py:28] Available routes are:
+INFO 05-18 23:27:20 [launcher.py:36] Route: /openapi.json, Methods: GET, HEAD
+INFO 05-18 23:27:20 [launcher.py:36] Route: /docs, Methods: GET, HEAD
+INFO 05-18 23:27:20 [launcher.py:36] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 05-18 23:27:20 [launcher.py:36] Route: /redoc, Methods: GET, HEAD
+INFO 05-18 23:27:20 [launcher.py:36] Route: /health, Methods: GET
+INFO 05-18 23:27:20 [launcher.py:36] Route: /load, Methods: GET
+INFO 05-18 23:27:20 [launcher.py:36] Route: /ping, Methods: POST, GET
+INFO 05-18 23:27:20 [launcher.py:36] Route: /tokenize, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /detokenize, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/models, Methods: GET
+INFO 05-18 23:27:20 [launcher.py:36] Route: /version, Methods: GET
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/chat/completions, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/completions, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/embeddings, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /pooling, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /score, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/score, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/audio/transcriptions, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /rerank, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v1/rerank, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /v2/rerank, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /invocations, Methods: POST
+INFO 05-18 23:27:20 [launcher.py:36] Route: /metrics, Methods: GET
+INFO:     Started server process [1322]
+INFO:     Waiting for application startup.
+2025-05-18 23:27:20,780 - log_monitor - INFO - Read 30 new lines from vllm.log
+INFO:     Application startup complete.
+2025-05-18 23:27:20,981 - log_monitor - INFO - Read 1 new lines from vllm.log
+2025-05-18 23:28:12,126 - log_monitor - INFO - Read 27 new lines from jupyter.log
+2025-05-18 23:28:27,171 - log_monitor - INFO - Read 26 new lines from jupyter.log
+INFO:     127.0.0.1:58048 - "GET / HTTP/1.1" 404 Not Found
+2025-05-18 23:29:11,309 - log_monitor - INFO - Read 1 new lines from vllm.log
+2025-05-18 23:29:12,721 - log_monitor - INFO - Read 26 new lines from jupyter.log
+2025-05-18 23:30:20,714 - log_monitor - INFO - Read 26 new lines from jupyter.log
+2025-05-18 23:31:15,300 - log_monitor - INFO - Read 25 new lines from jupyter.log
+2025-05-18 23:32:00,017 - log_monitor - INFO - Read 26 new lines from jupyter.log
