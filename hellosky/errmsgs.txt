@@ -1,0 +1,91 @@
+sky check
+Checking credentials to enable clouds for SkyPilot.
+
+Enabling Cloud TPU API (free of charge)...
+Done. Took 6.0 secs.
+
+Hint: Enabled GCP API(s) may take a few minutes to take effect. If any SkyPilot commands/calls failed, retry after some time.
+  AWS: disabled
+    Reason [compute, storage]: AWS dependencies are not installed. Run the following commands:
+      $ pip install skypilot[aws]
+    Credentials may also need to be set. Run the following commands:
+      $ aws configure
+      $ aws configure list  # Ensure that this shows identity is set.
+    For more info: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
+  Azure: disabled
+    Reason [compute, storage]: ~/.azure/msal_token_cache.json does not exist. Run the following commands:
+      $ az login
+      $ az account set -s <subscription_id>
+    For more info: https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli
+  Cloudflare: disabled
+    Reason [compute, storage]: [r2] profile is not set in ~/.cloudflare/r2.credentials. Additionally, Account ID from R2 dashboard is not set. Run the following commands:
+      $ pip install boto3
+      $ AWS_SHARED_CREDENTIALS_FILE=~/.cloudflare/r2.credentials aws configure --profile r2
+      $ mkdir -p ~/.cloudflare
+      $ echo <YOUR_ACCOUNT_ID_HERE> > ~/.cloudflare/accountid
+    For more info: https://docs.skypilot.co/en/latest/getting-started/installation.html#cloudflare-r2
+  Cudo: disabled
+    Reason [compute]: Cudo tools are not installed. Run the following commands:
+      $ pip install cudo-compute
+    [ModuleNotFoundError] No module named 'cudo_compute'
+  DO: disabled
+    Reason [compute]: Failed to import dependencies for DO. Try pip install "skypilot[do]"
+  Fluidstack: disabled
+    Reason [compute]: Failed to access FluidStack Cloud with credentials. To configure credentials, go to:
+      https://dashboard.fluidstack.io
+    to obtain an API key, then add save the contents to ~/.fluidstack/api_key
+  GCP: enabled [compute, storage]
+  IBM: disabled
+    Reason [compute, storage]: Missing credential file at /Users/timwu/.ibm/credentials.yaml.
+    Store your API key and Resource Group id in ~/.ibm/credentials.yaml in the following format:
+      iam_api_key: <IAM_API_KEY>
+      resource_group_id: <RESOURCE_GROUP_ID>
+  Kubernetes: disabled
+    Reason [compute]: The default MacOS `nc` is installed. However, for `portforward` default networking mode, GNU netcat is required.
+    On Debian/Ubuntu, install the missing dependenc(ies) with:
+      $ sudo apt install netcat
+    On MacOS, install with:
+      $ brew install netcat
+  Lambda: disabled
+    Reason [compute]: Failed to access Lambda Cloud with credentials. To configure credentials, go to:
+      https://cloud.lambdalabs.com/api-keys
+    to generate API key and add the line
+      api_key = [YOUR API KEY]
+    to ~/.lambda_cloud/lambda_keys
+  Nebius: disabled
+    Reason [compute]: Credentials can be set up by running:
+      $ nebius iam get-access-token > ~/.nebius/NEBIUS_IAM_TOKEN.txt
+     or generate  ~/.nebius/credentials.json
+    Reason [storage]: [nebius] profile is not set in ~/.aws/credentials. Run the following commands:
+      $ pip install boto3
+      $ aws configure --profile nebius
+    For more info: https://docs.skypilot.co/en/latest/getting-started/installation.html#nebius
+  OCI: disabled
+    Reason [compute, storage]: `oci` is not installed. Install it with: pip install oci
+    For more details, refer to: https://docs.skypilot.co/en/latest/getting-started/installation.html#oracle-cloud-infrastructure-oci
+  Paperspace: disabled
+    Reason [compute]: Failed to access Paperspace Cloud with credentials.
+    To configure credentials, follow the instructions at: https://docs.skypilot.co/en/latest/getting-started/installation.html#paperspace
+    Generate API key and create a json at `~/.paperspace/config.json` with
+         {"apiKey": "[YOUR API KEY]"}
+    Reason: Credentials not found
+  RunPod: enabled [compute]
+  SCP: disabled
+    Reason [compute]: Failed to access SCP with credentials. To configure credentials, see: https://cloud.samsungsds.com/openapiguide
+    Generate API key and add the following line to ~/.scp/scp_credential:
+      access_key = [YOUR API ACCESS KEY]
+      secret_key = [YOUR API SECRET KEY]
+      project_id = [YOUR PROJECT ID]
+  Vast: disabled
+    Reason [compute]: Failed to import vast. To install, run: pip install skypilot[vast]
+  vSphere: disabled
+    Reason [compute]: vSphere dependencies are not installed. Run the following commands:
+      $ pip install skypilot[vSphere]
+    Credentials may also need to be set. For more details. See https://docs.skypilot.co/en/latest/getting-started/installation.html#vmware-vsphere[ModuleNotFoundError] No module named 'pyVmomi'
+
+To enable a cloud, follow the hints above and rerun: sky check
+If any problems remain, refer to detailed docs at: https://docs.skypilot.co/en/latest/getting-started/installation.html
+
+🎉 Enabled clouds 🎉
+  GCP [compute, storage]
+  RunPod [compute]

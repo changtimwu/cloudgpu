@@ -1,0 +1,115 @@
+# runpod-gpu-test.yaml
+name: runpod-gpu-test
+
+resources:
+  cloud: runpod
+  accelerators: A40:1  # Adjust based on your RunPod availability
+  # Alternative options: RTX4090:1, A100:1, H100:1, etc.
+
+file_mounts:
+  /workspace: .  # Mount current directory to workspace
+
+setup: |
+  # Update system and install basic tools
+  sudo apt-get update
+  sudo apt-get install -y htop nvtop wget curl
+  
+  # Install Python packages for GPU testing
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+  pip install transformers accelerate
+  
+  echo "Setup completed successfully!"
+
+run: |
+  echo "=== RunPod GPU Test Job ==="
+  echo "Current time: $(date)"
+  echo "Working directory: $(pwd)"
+  
+  # System information
+  echo -e "\n=== System Info ==="
+  uname -a
+  lscpu | grep "Model name"
+  
+  # GPU information
+  echo -e "\n=== GPU Info ==="
+  nvidia-smi
+  
+  # Python/PyTorch GPU test
+  echo -e "\n=== PyTorch GPU Test ==="
+  python3 << 'EOF'
+import torch
+import time
+
+print(f"PyTorch version: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+
+if torch.cuda.is_available():
+    print(f"CUDA version: {torch.version.cuda}")
+    print(f"GPU count: {torch.cuda.device_count()}")
+    
+    for i in range(torch.cuda.device_count()):
+        gpu = torch.cuda.get_device_properties(i)
+        print(f"GPU {i}: {gpu.name}")
+        print(f"  Memory: {gpu.total_memory / 1024**3:.1f} GB")
+        print(f"  Compute capability: {gpu.major}.{gpu.minor}")
+    
+    # Simple GPU computation test
+    print("\n=== GPU Computation Test ===")
+    device = torch.device('cuda:0')
+    
+    # Create large tensors and perform operations
+    a = torch.randn(5000, 5000, device=device)
+    b = torch.randn(5000, 5000, device=device)
+    
+    start_time = time.time()
+    c = torch.matmul(a, b)
+    torch.cuda.synchronize()
+    end_time = time.time()
+    
+    print(f"Matrix multiplication (5000x5000): {end_time - start_time:.2f} seconds")
+    print(f"Result tensor shape: {c.shape}")
+    print(f"GPU memory allocated: {torch.cuda.memory_allocated() / 1024**3:.2f} GB")
+    print(f"GPU memory cached: {torch.cuda.memory_reserved() / 1024**3:.2f} GB")
+    
+    # Test a simple model
+    print("\n=== Simple Model Test ===")
+    model = torch.nn.Sequential(
+        torch.nn.Linear(1000, 2000),
+        torch.nn.ReLU(),
+        torch.nn.Linear(2000, 1000),
+        torch.nn.ReLU(),
+        torch.nn.Linear(1000, 10)
+    ).to(device)
+    
+    x = torch.randn(64, 1000, device=device)
+    with torch.no_grad():
+        y = model(x)
+    print(f"Model output shape: {y.shape}")
+    
+else:
+    print("CUDA not available - check GPU setup!")
+EOF
+
+  # Test Hugging Face transformers (optional)
+  echo -e "\n=== Hugging Face Test (Optional) ==="
+  python3 << 'EOF'
+try:
+    from transformers import pipeline
+    import torch
+    
+    if torch.cuda.is_available():
+        # Small model test
+        classifier = pipeline("sentiment-analysis", 
+                            model="distilbert-base-uncased-finetuned-sst-2-english",
+                            device=0)
+        result = classifier("RunPod GPU is working great!")
+        print(f"Sentiment analysis result: {result}")
+    else:
+        print("Skipping HF test - no CUDA available")
+except Exception as e:
+    print(f"HF test failed (this is optional): {e}")
+EOF
+
+  echo -e "\n=== Test Completed Successfully! ==="
+  echo "RunPod GPU infrastructure is working properly."
+
