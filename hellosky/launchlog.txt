@@ -1,0 +1,287 @@
+(venv) venvtimwu@imacm3 hellosky % sky launch job1.yaml          
+YAML to run: job1.yaml
+Failed to connect to SkyPilot API server at http://127.0.0.1:46580. Starting a local server.
+✓ SkyPilot API server started. 
+Considered resources (1 node):
+---------------------------------------------------------------------------------------------
+ CLOUD    INSTANCE        vCPUs   Mem(GB)   ACCELERATORS   REGION/ZONE   COST ($)   CHOSEN   
+---------------------------------------------------------------------------------------------
+ RunPod   1x_A40_SECURE   9       48        A40:1          CA            0.44          ✔     
+---------------------------------------------------------------------------------------------
+Launching a new cluster 'sky-fbcc-timwu'. Proceed? [Y/n]: 
+⚙︎ Launching on RunPod CA (CA-MTL-1,CA-MTL-2,CA-MTL-3).
+raw_response: {'data': {'podFindAndDeployOnDemand': {'id': '8t03a4whfwvxey', 'imageName': 'runpod/base:0.0.2', 'env': ['PUBLIC_KEY=ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGaKxUIDocOorLLjuNcKyMvg7DG4NBv+7r9h9d23LIn changtimwu@gmail.com\n\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCmIxXzFYlRK0yANPA1xjCJZ0t5CBiN5QH6Z8Sb+U3oFqVC+QC8EgxcliUqm06gikPhZDi+EW77GGclF1BJEE9LjfPMXz9T51Serms5CvOfOhCdwzE/efxpkwSPN2xEM25lWVv4oaUzGgvG+Se4WkDxEBzHD1w/+xXJo33PbHaTe/OwSlHchAN9IaCP3dj2IOoAWJwMfpf9OfZRCjR6SZPaEyFdpGNRtK84qupV/bRPy3Y+dJNPAwEClY/uCZLHX8vaiMtfeU05iRb38HhYHxEll9JGdJvPK91dnHSUcSMqZpV2eiBqdfLVzoWWJVjdIHJYc8GDmuNWBYJHRHFSWAXz'], 'machineId': 'tjsv75a06f52', 'machine': {'podHostId': '8t03a4whfwvxey-6441153f'}}}}
+└── Instance is up.
+✓ Cluster launched: sky-fbcc-timwu.  View logs: sky api logs -l sky-2025-06-02-10-36-02-076671/provision.log
+⚙︎ Syncing files.
+  Syncing (to 1 node): /Users/timwu/Documents/cloudgpu/hellosky -> ~/.sky/file_mounts/workspace
+✓ Synced file_mounts.  View logs: sky api logs -l sky-2025-06-02-10-36-02-076671/file_mounts.log
+✓ Setup detached.
+⚙︎ Job submitted, ID: 1
+├── Waiting for task resources on 1 node.
+└── Job started. Streaming logs... (Ctrl-C to exit log streaming; job will not be killed)
+(setup pid=2060) Hit:1 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64  InRelease
+(setup pid=2060) Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease
+(setup pid=2060) Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
+(setup pid=2060) Hit:4 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu focal InRelease
+(setup pid=2060) Hit:5 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+(setup pid=2060) Hit:6 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+(setup pid=2060) Reading package lists...
+(setup pid=2060) Reading package lists...
+(setup pid=2060) Building dependency tree...
+(setup pid=2060) Reading state information...
+(setup pid=2060) curl is already the newest version (7.68.0-1ubuntu2.25).
+(setup pid=2060) The following additional packages will be installed:
+(setup pid=2060)   libnvidia-compute-418 libnvidia-compute-430 libnvidia-compute-545
+(setup pid=2060) Suggested packages:
+(setup pid=2060)   lsof strace
+(setup pid=2060) The following NEW packages will be installed:
+(setup pid=2060)   htop libnvidia-compute-418 libnvidia-compute-430 libnvidia-compute-545 nvtop
+(setup pid=2060) The following packages will be upgraded:
+(setup pid=2060)   wget
+(setup pid=2060) 1 upgraded, 5 newly installed, 0 to remove and 163 not upgraded.
+(setup pid=2060) Need to get 49.3 MB of archives.
+(setup pid=2060) After this operation, 223 MB of additional disk space will be used.
+(setup pid=2060) Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 wget amd64 1.20.3-1ubuntu2.1 [349 kB]
+(setup pid=2060) Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 htop amd64 2.2.0-2build1 [80.5 kB]
+(setup pid=2060) Get:3 http://archive.ubuntu.com/ubuntu focal/restricted amd64 libnvidia-compute-418 amd64 430.50-0ubuntu3 [6936 B]
+(setup pid=2060) Get:4 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 nvtop amd64 1.0.0-1ubuntu2 [26.8 kB]
+(setup pid=2060) Get:5 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64  libnvidia-compute-545 545.23.08-0ubuntu1 [48.8 MB]
+(setup pid=2060) Get:6 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64  libnvidia-compute-430 545.23.08-0ubuntu1 [10.9 kB]
+(setup pid=2060) debconf: delaying package configuration, since apt-utils is not installed
+(setup pid=2060) Fetched 49.3 MB in 1s (43.6 MB/s)
+(Reading database ... 28135 files and directories currently installed.)
+(setup pid=2060) Preparing to unpack .../0-wget_1.20.3-1ubuntu2.1_amd64.deb ...
+(setup pid=2060) Unpacking wget (1.20.3-1ubuntu2.1) over (1.20.3-1ubuntu2) ...
+(setup pid=2060) Selecting previously unselected package htop.
+(setup pid=2060) Preparing to unpack .../1-htop_2.2.0-2build1_amd64.deb ...
+(setup pid=2060) Unpacking htop (2.2.0-2build1) ...
+(setup pid=2060) Selecting previously unselected package libnvidia-compute-545:amd64.
+(setup pid=2060) Preparing to unpack .../2-libnvidia-compute-545_545.23.08-0ubuntu1_amd64.deb ...
+(setup pid=2060) Unpacking libnvidia-compute-545:amd64 (545.23.08-0ubuntu1) ...
+(setup pid=2060) Selecting previously unselected package libnvidia-compute-430:amd64.
+(setup pid=2060) Preparing to unpack .../3-libnvidia-compute-430_545.23.08-0ubuntu1_amd64.deb ...
+(setup pid=2060) Unpacking libnvidia-compute-430:amd64 (545.23.08-0ubuntu1) ...
+(setup pid=2060) Selecting previously unselected package libnvidia-compute-418:amd64.
+(setup pid=2060) Preparing to unpack .../4-libnvidia-compute-418_430.50-0ubuntu3_amd64.deb ...
+(setup pid=2060) Unpacking libnvidia-compute-418:amd64 (430.50-0ubuntu3) ...
+(setup pid=2060) Selecting previously unselected package nvtop.
+(setup pid=2060) Preparing to unpack .../5-nvtop_1.0.0-1ubuntu2_amd64.deb ...
+(setup pid=2060) Unpacking nvtop (1.0.0-1ubuntu2) ...
+(setup pid=2060) Setting up wget (1.20.3-1ubuntu2.1) ...
+(setup pid=2060) Setting up htop (2.2.0-2build1) ...
+(setup pid=2060) Setting up libnvidia-compute-545:amd64 (545.23.08-0ubuntu1) ...
+(setup pid=2060) Setting up libnvidia-compute-430:amd64 (545.23.08-0ubuntu1) ...
+(setup pid=2060) Setting up libnvidia-compute-418:amd64 (430.50-0ubuntu3) ...
+(setup pid=2060) Setting up nvtop (1.0.0-1ubuntu2) ...
+(setup pid=2060) Processing triggers for libc-bin (2.31-0ubuntu9.12) ...
+(setup pid=2060) Processing triggers for mime-support (3.64ubuntu1) ...
+(setup pid=2060) Looking in indexes: https://download.pytorch.org/whl/cu121
+(setup pid=2060) Collecting torch
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/torch-2.5.1%2Bcu121-cp310-cp310-linux_x86_64.whl (780.4 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 780.4/780.4 MB 21.9 MB/s eta 0:00:00
+(setup pid=2060) Collecting torchvision
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/torchvision-0.20.1%2Bcu121-cp310-cp310-linux_x86_64.whl (7.3 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.3/7.3 MB 229.0 MB/s eta 0:00:00
+(setup pid=2060) Collecting torchaudio
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/torchaudio-2.5.1%2Bcu121-cp310-cp310-linux_x86_64.whl (3.4 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 203.4 MB/s eta 0:00:00
+(setup pid=2060) Collecting filelock (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/filelock-3.13.1-py3-none-any.whl.metadata (2.8 kB)
+(setup pid=2060) Collecting typing-extensions>=4.8.0 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/typing_extensions-4.12.2-py3-none-any.whl.metadata (3.0 kB)
+(setup pid=2060) Collecting networkx (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/networkx-3.3-py3-none-any.whl.metadata (5.1 kB)
+(setup pid=2060) Collecting jinja2 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/Jinja2-3.1.4-py3-none-any.whl.metadata (2.6 kB)
+(setup pid=2060) Collecting fsspec (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/fsspec-2024.6.1-py3-none-any.whl.metadata (11 kB)
+(setup pid=2060) Collecting nvidia-cuda-nvrtc-cu12==12.1.105 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cuda_nvrtc_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (23.7 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 172.7 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cuda-runtime-cu12==12.1.105 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cuda_runtime_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (823 kB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 823.6/823.6 kB 187.9 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cuda-cupti-cu12==12.1.105 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cuda_cupti_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (14.1 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.1/14.1 MB 190.0 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 664.8/664.8 MB 23.5 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cublas-cu12==12.1.3.1 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cublas_cu12-12.1.3.1-py3-none-manylinux1_x86_64.whl (410.6 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 410.6/410.6 MB 38.6 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cufft-cu12==11.0.2.54 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cufft_cu12-11.0.2.54-py3-none-manylinux1_x86_64.whl (121.6 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.6/121.6 MB 101.7 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-curand-cu12==10.3.2.106 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_curand_cu12-10.3.2.106-py3-none-manylinux1_x86_64.whl (56.5 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 MB 176.7 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cusolver-cu12==11.4.5.107 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cusolver_cu12-11.4.5.107-py3-none-manylinux1_x86_64.whl (124.2 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.2/124.2 MB 100.0 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-cusparse-cu12==12.1.0.106 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_cusparse_cu12-12.1.0.106-py3-none-manylinux1_x86_64.whl (196.0 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.0/196.0 MB 76.8 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-nccl-cu12==2.21.5 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 188.7/188.7 MB 75.7 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-nvtx-cu12==12.1.105 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_nvtx_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (99 kB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 kB 47.8 MB/s eta 0:00:00
+(setup pid=2060) Collecting triton==3.1.0 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209.5 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.5/209.5 MB 68.1 MB/s eta 0:00:00
+(setup pid=2060) Collecting sympy==1.13.1 (from torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/sympy-1.13.1-py3-none-any.whl (6.2 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 261.9 MB/s eta 0:00:00
+(setup pid=2060) Collecting nvidia-nvjitlink-cu12 (from nvidia-cusolver-cu12==11.4.5.107->torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/cu121/nvidia_nvjitlink_cu12-12.1.105-py3-none-manylinux1_x86_64.whl (19.8 MB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.8/19.8 MB 124.6 MB/s eta 0:00:00
+(setup pid=2060) Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/mpmath-1.3.0-py3-none-any.whl (536 kB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 160.9 MB/s eta 0:00:00
+(setup pid=2060) Collecting numpy (from torchvision)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/numpy-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (60 kB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.9/60.9 kB 33.2 MB/s eta 0:00:00
+(setup pid=2060) Collecting pillow!=8.3.*,>=5.3.0 (from torchvision)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/pillow-11.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+(setup pid=2060) Collecting MarkupSafe>=2.0 (from jinja2->torch)
+(setup pid=2060)   Downloading https://download.pytorch.org/whl/MarkupSafe-2.1.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+(setup pid=2060) Downloading https://download.pytorch.org/whl/pillow-11.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (4.4 MB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 116.8 MB/s eta 0:00:00
+(setup pid=2060) Downloading https://download.pytorch.org/whl/typing_extensions-4.12.2-py3-none-any.whl (37 kB)
+(setup pid=2060) Downloading https://download.pytorch.org/whl/filelock-3.13.1-py3-none-any.whl (11 kB)
+(setup pid=2060) Downloading https://download.pytorch.org/whl/fsspec-2024.6.1-py3-none-any.whl (177 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 177.6/177.6 kB 69.8 MB/s eta 0:00:00
+(setup pid=2060) Downloading https://download.pytorch.org/whl/Jinja2-3.1.4-py3-none-any.whl (133 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 53.0 MB/s eta 0:00:00
+(setup pid=2060) Downloading https://download.pytorch.org/whl/networkx-3.3-py3-none-any.whl (1.7 MB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 179.9 MB/s eta 0:00:00
+(setup pid=2060) Downloading https://download.pytorch.org/whl/numpy-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.3 MB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.3/16.3 MB 233.6 MB/s eta 0:00:00
+(setup pid=2060) Installing collected packages: mpmath, typing-extensions, sympy, pillow, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, MarkupSafe, fsspec, filelock, triton, nvidia-cusparse-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, torch, torchvision, torchaudio
+(setup pid=2060) Successfully installed MarkupSafe-2.1.5 filelock-3.13.1 fsspec-2024.6.1 jinja2-3.1.4 mpmath-1.3.0 networkx-3.3 numpy-2.1.2 nvidia-cublas-cu12-12.1.3.1 nvidia-cuda-cupti-cu12-12.1.105 nvidia-cuda-nvrtc-cu12-12.1.105 nvidia-cuda-runtime-cu12-12.1.105 nvidia-cudnn-cu12-9.1.0.70 nvidia-cufft-cu12-11.0.2.54 nvidia-curand-cu12-10.3.2.106 nvidia-cusolver-cu12-11.4.5.107 nvidia-cusparse-cu12-12.1.0.106 nvidia-nccl-cu12-2.21.5 nvidia-nvjitlink-cu12-12.1.105 nvidia-nvtx-cu12-12.1.105 pillow-11.0.0 sympy-1.13.1 torch-2.5.1+cu121 torchaudio-2.5.1+cu121 torchvision-0.20.1+cu121 triton-3.1.0 typing-extensions-4.12.2
+(setup pid=2060) WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+(setup pid=2060) Collecting transformers
+(setup pid=2060)   Downloading transformers-4.52.4-py3-none-any.whl.metadata (38 kB)
+(setup pid=2060) Collecting accelerate
+(setup pid=2060)   Downloading accelerate-1.7.0-py3-none-any.whl.metadata (19 kB)
+(setup pid=2060) Requirement already satisfied: filelock in /root/miniconda3/lib/python3.10/site-packages (from transformers) (3.13.1)
+(setup pid=2060) Collecting huggingface-hub<1.0,>=0.30.0 (from transformers)
+(setup pid=2060)   Downloading huggingface_hub-0.32.3-py3-none-any.whl.metadata (14 kB)
+(setup pid=2060) Requirement already satisfied: numpy>=1.17 in /root/miniconda3/lib/python3.10/site-packages (from transformers) (2.1.2)
+(setup pid=2060) Requirement already satisfied: packaging>=20.0 in /root/miniconda3/lib/python3.10/site-packages (from transformers) (23.1)
+(setup pid=2060) Collecting pyyaml>=5.1 (from transformers)
+(setup pid=2060)   Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+(setup pid=2060) Collecting regex!=2019.12.17 (from transformers)
+(setup pid=2060)   Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+(setup pid=2060)      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 16.6 MB/s eta 0:00:00
+(setup pid=2060) Requirement already satisfied: requests in /root/miniconda3/lib/python3.10/site-packages (from transformers) (2.31.0)
+(setup pid=2060) Collecting tokenizers<0.22,>=0.21 (from transformers)
+(setup pid=2060)   Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+(setup pid=2060) Collecting safetensors>=0.4.3 (from transformers)
+(setup pid=2060)   Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+(setup pid=2060) Requirement already satisfied: tqdm>=4.27 in /root/miniconda3/lib/python3.10/site-packages (from transformers) (4.65.0)
+(setup pid=2060) Collecting psutil (from accelerate)
+(setup pid=2060)   Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+(setup pid=2060) Requirement already satisfied: torch>=2.0.0 in /root/miniconda3/lib/python3.10/site-packages (from accelerate) (2.5.1+cu121)
+(setup pid=2060) Requirement already satisfied: fsspec>=2023.5.0 in /root/miniconda3/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.30.0->transformers) (2024.6.1)
+(setup pid=2060) Requirement already satisfied: typing-extensions>=3.7.4.3 in /root/miniconda3/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.30.0->transformers) (4.12.2)
+(setup pid=2060) Collecting hf-xet<2.0.0,>=1.1.2 (from huggingface-hub<1.0,>=0.30.0->transformers)
+(setup pid=2060)   Downloading hf_xet-1.1.2-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (879 bytes)
+(setup pid=2060) Requirement already satisfied: networkx in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (3.3)
+(setup pid=2060) Requirement already satisfied: jinja2 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (3.1.4)
+(setup pid=2060) Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (12.1.105)
+(setup pid=2060) Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (12.1.105)
+(setup pid=2060) Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (12.1.105)
+(setup pid=2060) Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (9.1.0.70)
+(setup pid=2060) Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (12.1.3.1)
+(setup pid=2060) Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (11.0.2.54)
+(setup pid=2060) Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (10.3.2.106)
+(setup pid=2060) Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (11.4.5.107)
+(setup pid=2060) Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (12.1.0.106)
+(setup pid=2060) Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (2.21.5)
+(setup pid=2060) Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (12.1.105)
+(setup pid=2060) Requirement already satisfied: triton==3.1.0 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (3.1.0)
+(setup pid=2060) Requirement already satisfied: sympy==1.13.1 in /root/miniconda3/lib/python3.10/site-packages (from torch>=2.0.0->accelerate) (1.13.1)
+(setup pid=2060) Requirement already satisfied: nvidia-nvjitlink-cu12 in /root/miniconda3/lib/python3.10/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch>=2.0.0->accelerate) (12.1.105)
+(setup pid=2060) Requirement already satisfied: mpmath<1.4,>=1.1.0 in /root/miniconda3/lib/python3.10/site-packages (from sympy==1.13.1->torch>=2.0.0->accelerate) (1.3.0)
+(setup pid=2060) Requirement already satisfied: charset-normalizer<4,>=2 in /root/miniconda3/lib/python3.10/site-packages (from requests->transformers) (2.0.4)
+(setup pid=2060) Requirement already satisfied: idna<4,>=2.5 in /root/miniconda3/lib/python3.10/site-packages (from requests->transformers) (3.4)
+(setup pid=2060) Requirement already satisfied: urllib3<3,>=1.21.1 in /root/miniconda3/lib/python3.10/site-packages (from requests->transformers) (1.26.18)
+(setup pid=2060) Requirement already satisfied: certifi>=2017.4.17 in /root/miniconda3/lib/python3.10/site-packages (from requests->transformers) (2023.11.17)
+(setup pid=2060) Requirement already satisfied: MarkupSafe>=2.0 in /root/miniconda3/lib/python3.10/site-packages (from jinja2->torch>=2.0.0->accelerate) (2.1.5)
+(setup pid=2060) Downloading transformers-4.52.4-py3-none-any.whl (10.5 MB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.5/10.5 MB 242.9 MB/s eta 0:00:00
+(setup pid=2060) Downloading accelerate-1.7.0-py3-none-any.whl (362 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 362.1/362.1 kB 45.8 MB/s eta 0:00:00
+(setup pid=2060) Downloading huggingface_hub-0.32.3-py3-none-any.whl (512 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 512.1/512.1 kB 160.1 MB/s eta 0:00:00
+(setup pid=2060) Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 184.3 MB/s eta 0:00:00
+(setup pid=2060) Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 188.9 MB/s eta 0:00:00
+(setup pid=2060) Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 471.6/471.6 kB 157.5 MB/s eta 0:00:00
+(setup pid=2060) Downloading tokenizers-0.21.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 243.8 MB/s eta 0:00:00
+(setup pid=2060) Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 278.0/278.0 kB 125.5 MB/s eta 0:00:00
+(setup pid=2060) Downloading hf_xet-1.1.2-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.2 MB)
+(setup pid=2060)    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 252.1 MB/s eta 0:00:00
+(setup pid=2060) Installing collected packages: safetensors, regex, pyyaml, psutil, hf-xet, huggingface-hub, tokenizers, transformers, accelerate
+(setup pid=2060) Successfully installed accelerate-1.7.0 hf-xet-1.1.2 huggingface-hub-0.32.3 psutil-7.0.0 pyyaml-6.0.2 regex-2024.11.6 safetensors-0.5.3 tokenizers-0.21.1 transformers-4.52.4
+(setup pid=2060) WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+(setup pid=2060) Setup completed successfully!
+(runpod-gpu-test, pid=2060) === RunPod GPU Test Job ===
+(runpod-gpu-test, pid=2060) Current time: Mon Jun  2 02:40:31 UTC 2025
+(runpod-gpu-test, pid=2060) Working directory: /root/sky_workdir
+(runpod-gpu-test, pid=2060) 
+(runpod-gpu-test, pid=2060) === System Info ===
+(runpod-gpu-test, pid=2060) Linux 03b064bc9e4e 6.8.0-48-generic #48~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Oct  7 11:24:13 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+(runpod-gpu-test, pid=2060) Model name:                           Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz
+(runpod-gpu-test, pid=2060) 
+(runpod-gpu-test, pid=2060) === GPU Info ===
+(runpod-gpu-test, pid=2060) Mon Jun  2 02:40:31 2025       
+(runpod-gpu-test, pid=2060) +-----------------------------------------------------------------------------------------+
+(runpod-gpu-test, pid=2060) | NVIDIA-SMI 550.127.05             Driver Version: 550.127.05     CUDA Version: 12.4     |
+(runpod-gpu-test, pid=2060) |-----------------------------------------+------------------------+----------------------+
+(runpod-gpu-test, pid=2060) | GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+(runpod-gpu-test, pid=2060) | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+(runpod-gpu-test, pid=2060) |                                         |                        |               MIG M. |
+(runpod-gpu-test, pid=2060) |=========================================+========================+======================|
+(runpod-gpu-test, pid=2060) |   0  NVIDIA A40                     On  |   00000000:52:00.0 Off |                    0 |
+(runpod-gpu-test, pid=2060) |  0%   18C    P8             21W /  300W |       1MiB /  46068MiB |      0%      Default |
+(runpod-gpu-test, pid=2060) |                                         |                        |                  N/A |
+(runpod-gpu-test, pid=2060) +-----------------------------------------+------------------------+----------------------+
+(runpod-gpu-test, pid=2060)                                                                                          
+(runpod-gpu-test, pid=2060) +-----------------------------------------------------------------------------------------+
+(runpod-gpu-test, pid=2060) | Processes:                                                                              |
+(runpod-gpu-test, pid=2060) |  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+(runpod-gpu-test, pid=2060) |        ID   ID                                                               Usage      |
+(runpod-gpu-test, pid=2060) |=========================================================================================|
+(runpod-gpu-test, pid=2060) |  No running processes found                                                             |
+(runpod-gpu-test, pid=2060) +-----------------------------------------------------------------------------------------+
+(runpod-gpu-test, pid=2060) 
+(runpod-gpu-test, pid=2060) === PyTorch GPU Test ===
+(runpod-gpu-test, pid=2060) python3: can't open file '/root/sky_workdir/test_cuda.py': [Errno 2] No such file or directory
+(runpod-gpu-test, pid=2060) 
+(runpod-gpu-test, pid=2060) === Hugging Face Test (Optional) ===
+(runpod-gpu-test, pid=2060) python3: can't open file '/root/sky_workdir/test_hf1.py': [Errno 2] No such file or directory
+(runpod-gpu-test, pid=2060) python3: can't open file '/root/sky_workdir/test_hf2.py': [Errno 2] No such file or directory
+(runpod-gpu-test, pid=2060) 
+(runpod-gpu-test, pid=2060) === Test Completed Successfully! ===
+(runpod-gpu-test, pid=2060) RunPod GPU infrastructure is working properly.
+✓ Job finished (status: SUCCEEDED).
+
+📋 Useful Commands
+Job ID: 1
+├── To cancel the job:          sky cancel sky-fbcc-timwu 1
+├── To stream job logs:         sky logs sky-fbcc-timwu 1
+└── To view job queue:          sky queue sky-fbcc-timwu
+Cluster name: sky-fbcc-timwu
+├── To log into the head VM:    ssh sky-fbcc-timwu
+├── To submit a job:            sky exec sky-fbcc-timwu yaml_file
+├── To stop the cluster:        sky stop sky-fbcc-timwu
+└── To teardown the cluster:    sky down sky-fbcc-timwu

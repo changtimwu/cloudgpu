@@ -59,3 +59,22 @@ RTXA4500       1, 2, 4, 8
 RTXA5000       1, 2, 4, 8
 RTXA6000       1, 2, 4, 8
 ```
+
+* start the job 
+```
+sky launch job1.yaml   
+```
+
+## check useful commands
+```
+📋 Useful Commands
+Job ID: 1
+├── To cancel the job:          sky cancel sky-fbcc-timwu 1
+├── To stream job logs:         sky logs sky-fbcc-timwu 1
+└── To view job queue:          sky queue sky-fbcc-timwu
+Cluster name: sky-fbcc-timwu
+├── To log into the head VM:    ssh sky-fbcc-timwu
+├── To submit a job:            sky exec sky-fbcc-timwu yaml_file
+├── To stop the cluster:        sky stop sky-fbcc-timwu
+└── To teardown the cluster:    sky down sky-fbcc-timwu
+```
