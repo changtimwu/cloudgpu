@@ -1,0 +1,47 @@
+# runpod-gpu-test.yaml
+name: runpod-gpu-test
+
+resources:
+  cloud: runpod
+  accelerators: A40:1  # Adjust based on your RunPod availability
+  # Alternative options: RTX4090:1, A100:1, H100:1, etc.
+
+file_mounts:
+  /workspace: .  # Mount current directory to workspace
+
+setup: |
+  # Update system and install basic tools
+  sudo apt-get update
+  sudo apt-get install -y htop nvtop wget curl
+  
+  # Install Python packages for GPU testing
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+  pip install transformers accelerate
+  
+  echo "Setup completed successfully!"
+
+run: |
+  echo "=== RunPod GPU Test Job ==="
+  echo "Current time: $(date)"
+  echo "Working directory: $(pwd)"
+  
+  # System information
+  echo -e "\n=== System Info ==="
+  uname -a
+  lscpu | grep "Model name"
+  
+  # GPU information
+  echo -e "\n=== GPU Info ==="
+  nvidia-smi
+  
+  # Python/PyTorch GPU test
+  echo -e "\n=== PyTorch GPU Test ==="
+  python3 test_cuda.py
+
+  # Test Hugging Face transformers (optional)
+  echo -e "\n=== Hugging Face Test (Optional) ==="
+  python3 test_hf1.py
+  python3 test_hf2.py
+  echo -e "\n=== Test Completed Successfully! ==="
+  echo "RunPod GPU infrastructure is working properly."
+
